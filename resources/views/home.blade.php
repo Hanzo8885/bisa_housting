@@ -326,7 +326,7 @@
     </div>
     <div style="flex:1; min-width:280px; display:flex; justify-content:center;">
         <a href="{{ route('about') }}" class="btn-primary" style="align-self:flex-start; margin-top:48px;">
-            Lebir Lanjut <i class="fas fa-arrow-right"></i>
+            Lebih Lanjut <i class="fas fa-arrow-right"></i>
         </a>
     </div>
 </section>
