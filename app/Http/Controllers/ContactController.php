@@ -29,7 +29,7 @@ class ContactController extends Controller
         ])->post('https://api.brevo.com/v3/smtp/email', [
             'sender' => [
                 'name' => $request->first_name . ' ' . $request->last_name,
-                'email' => 'aebcdd001@smtp-brevo.com' // 👈 WAJIB: Ganti dengan email yang terdaftar di akun Brevo-mu
+                'email' => 'ohong02@gmail.com' // 👈 WAJIB: Ganti dengan email yang terdaftar di akun Brevo-mu
             ],
             'to' => [
                 [
