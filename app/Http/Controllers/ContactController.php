@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 class ContactController extends Controller
 {
-    public function send(Request $request)
+  public function send(Request $request)
     {
         // 1. Validasi input form kontak
         $request->validate([
@@ -18,10 +18,10 @@ class ContactController extends Controller
             'message'    => 'required|string',
         ]);
 
-        // 2. Mengambil API Key dari file .env / Railway Variables
+        // 2. Mengambil API Key dari Railway Variables
         $apiKey = env('BREVO_API_KEY');
 
-        // 3. Mengirim data ke API Brevo menggunakan HTTP Client bawaan Laravel (Aman dari Timeout!)
+        // 3. Mengirim data ke API Brevo menggunakan HTTP Client bawaan Laravel
         $response = Http::withHeaders([
             'api-key' => $apiKey,
             'Content-Type' => 'application/json',
@@ -29,11 +29,11 @@ class ContactController extends Controller
         ])->post('https://api.brevo.com/v3/smtp/email', [
             'sender' => [
                 'name' => $request->first_name . ' ' . $request->last_name,
-                'email' => 'ohong02@gmail.com' // 👈 WAJIB: Ganti dengan email yang terdaftar di akun Brevo-mu
+                'email' => 'ohong02@gmail.com' // 👈 WAJIB: Harus sama dengan email akun Brevo kamu agar tidak dianggap spam/no-subject
             ],
             'to' => [
                 [
-                    'email' => 'ohong02@gmail.com', // 👈 Email tujuan penerima pesan
+                    'email' => 'ohong02@gmail.com', // 👈 Email tujuan penerima pesan (email kamu juga)
                     'name' => 'Alfikar Radhestian'
                 ]
             ],
