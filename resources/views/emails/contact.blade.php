@@ -3,132 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pesan Baru dari Portfolio</title>
+    <title>Pesan Baru dari Form Kontak</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e1e5eb;
+        }
+        .email-header {
+            background-color: #4f46e5; /* Warna ungu/biru modern */
+            color: #ffffff;
+            padding: 25px;
+            text-align: center;
+        }
+        .email-header h2 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .email-body {
+            padding: 30px;
+        }
+        .meta-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+        .meta-table td {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f2f5;
+            vertical-align: top;
+        }
+        .meta-label {
+            font-weight: bold;
+            color: #4b5563;
+            width: 30%;
+            font-size: 14px;
+        }
+        .meta-value {
+            color: #1f2937;
+            width: 70%;
+            font-size: 14px;
+        }
+        .message-box {
+            background-color: #f8fafc;
+            border-left: 4px solid #4f46e5;
+            padding: 15px;
+            border-radius: 0 4px 4px 0;
+            margin-top: 5px;
+        }
+        .message-title {
+            font-weight: bold;
+            color: #374151;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .message-text {
+            color: #4b5563;
+            font-size: 14px;
+            line-height: 1.6;
+            white-space: pre-line; /* Menjaga enter/spasi dari user */
+        }
+        .email-footer {
+            background-color: #f8fafc;
+            padding: 15px;
+            text-align: center;
+            font-size: 12px;
+            color: #9ca3af;
+            border-top: 1px solid #e1e5eb;
+        }
+    </style>
 </head>
-<body style="margin:0; padding:0; background:#0a0a0a; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
+<body>
 
-    <table width="100%" cellpadding="0" cellspacing="0" style="background:#0a0a0a; padding: 48px 16px;">
-        <tr>
-            <td align="center">
-                <table width="580" cellpadding="0" cellspacing="0" style="width:100%; max-width:580px;">
+    <div class="email-container">
+        <div class="email-header">
+            <h2>Pesan Baru dari Kontak Website</h2>
+        </div>
 
-                    <tr>
-                        <td style="height:3px; background:#00C896; border-radius:3px 3px 0 0;"></td>
-                    </tr>
+        <div class="email-body">
+            <table class="meta-table">
+                <tr>
+                    <td class="meta-label">Nama Pengirim</td>
+                    <td class="meta-value">: Alfikar Jumat</td>
+                </tr>
+                <tr>
+                    <td class="meta-label">Email</td>
+                    <td class="meta-value">: <a href="mailto:ohong02@gmail.com" style="color: #4f46e5; text-decoration: none;">ohong02@gmail.com</a></td>
+                </tr>
+                <tr>
+                    <td class="meta-label">Subjek</td>
+                    <td class="meta-value">: Diskusi</td>
+                </tr>
+            </table>
 
-                    <tr>
-                        <td style="background:#111111; padding: 36px 40px 28px 40px; border-left:1px solid #1e1e1e; border-right:1px solid #1e1e1e;">
-                            <table width="100%" cellpadding="0" cellspacing="0">
-                                <tr>
-                                    <td>
-                                        <table cellpadding="0" cellspacing="0">
-                                            <tr>
-                                                <td style="vertical-align:middle;">
-                                                    <table cellpadding="0" cellspacing="0" style="border:1.5px solid #00C896; border-radius:6px; width:56px; height:56px; text-align:center;">
-                                                        <tr>
-                                                            <td align="center" style="vertical-align:middle; padding:2px;">
-                                                                <div style="font-size:8px; color:#00C896; line-height:1; margin-bottom:2px;">✦</div>
-                                                                <div style="font-family: Georgia, 'Times New Roman', serif; font-size:22px; font-weight:700; color:#ffffff; line-height:1;">A</div>
-                                                                <div style="font-size:8px; color:#00C896; line-height:1; margin-top:2px;">✦</div>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                                <td style="padding-left:16px; vertical-align:middle;">
-                                                    <span style="color:#ffffff; font-family:Georgia, 'Times New Roman', serif; font-size:17px; font-weight:700; letter-spacing:2px; text-transform:uppercase; display:block;">ALFIKAR</span>
-                                                    <span style="color:#00C896; font-size:10px; letter-spacing:3px; text-transform:uppercase; display:block; margin-top:3px; font-weight:400;">Personal Branding</span>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td align="right" style="vertical-align:middle;">
-                                        <span style="background:#112a24; color:#00C896; font-size:11px; font-weight:600; letter-spacing:0.5px; padding:5px 12px; border-radius:20px; border:1px solid #00C89635; white-space:nowrap;">● PESAN BARU</span>
-                                    </td>
-                                </tr>
-                            </table>
+            <div class="message-title">Isi Pesan:</div>
+            <div class="message-box">
+                <div class="message-text">Jsbsisis</div>
+            </div>
+        </div>
 
-                            <div style="height:1px; background:#2a2a2a; margin: 24px 0 20px 0;"></div>
-
-                            <h1 style="color:#ffffff; font-size:22px; font-weight:700; margin:0 0 6px 0; letter-spacing:-0.5px;">📩 Ada pesan masuk untukmu</h1>
-                            <p style="color:#666666; font-size:13px; margin:0; line-height:1.5;">Seseorang menghubungimu melalui form kontak portfolio.</p>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td style="background:#111111; padding: 0 40px 36px 40px; border-left:1px solid #1e1e1e; border-right:1px solid #1e1e1e;">
-
-                            <table width="100%" cellpadding="0" cellspacing="0" style="background:#161616; border:1px solid #222222; border-radius:14px; overflow:hidden;">
-                                <tr>
-                                    <td style="padding:18px 22px 14px 22px;">
-                                        <span style="font-size:10px; font-weight:700; letter-spacing:2.5px; color:#00C896; text-transform:uppercase;">Informasi Pengirim</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="height:1px; background:#222222;"></td>
-                                </tr>
-                                <tr>
-                                    <td style="padding:20px 22px;">
-                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                            <tr>
-                                                <td width="50%" style="padding-bottom:16px; vertical-align:top; padding-right:12px;">
-                                                    <span style="font-size:11px; color:#555555; display:block; margin-bottom:5px; font-weight:500; text-transform:uppercase; letter-spacing:1px;">Nama</span>
-                                                    <span style="font-size:15px; font-weight:600; color:#f0f0f0; display:block;">{{ $first_name }} {{ $last_name }}</span>
-                                                </td>
-                                                <td width="50%" style="padding-bottom:16px; vertical-align:top;">
-                                                    <span style="font-size:11px; color:#555555; display:block; margin-bottom:5px; font-weight:500; text-transform:uppercase; letter-spacing:1px;">Email</span>
-                                                    <span style="font-size:14px; font-weight:500; color:#00C896; display:block; word-break:break-all;">{{ $email }}</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <div style="height:1px; background:#1e1e1e; margin-bottom:16px;"></div>
-                                                    <span style="font-size:11px; color:#555555; display:block; margin-bottom:5px; font-weight:500; text-transform:uppercase; letter-spacing:1px;">Subjek</span>
-                                                    <span style="font-size:15px; font-weight:600; color:#f0f0f0; display:block;">{{ $subject ?? '(tidak ada subjek)' }}</span>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-
-                            <div style="margin-top:24px;">
-                                <span style="font-size:10px; font-weight:700; letter-spacing:2.5px; color:#00C896; text-transform:uppercase; display:block; margin-bottom:12px;">Isi Pesan</span>
-                                <div style="background:#161616; border:1px solid #222222; border-radius:14px; padding:22px 24px;">
-                                    <span style="font-size:36px; color:#00C89630; font-family:Georgia, serif; line-height:1; font-weight:700; display:block; margin-bottom:-15px;">"</span>
-                                    <p style="font-size:14px; color:#cccccc; line-height:1.85; margin:0; padding-left:10px;">{{ $pesan }}</p>
-                                </div>
-                            </div>
-
-                            <div style="text-align:center; margin-top:32px;">
-                                <a href="mailto:{{ $email }}" style="background:#00C896; color:#0a0a0a; padding:14px 36px; border-radius:12px; text-decoration:none; font-weight:700; font-size:14px; display:inline-block; letter-spacing:-0.2px;">
-                                    Balas Pesan &nbsp;↗
-                                </a>
-                                <p style="color:#444444; font-size:12px; margin:14px 0 0 0;">Klik tombol di atas atau balas langsung ke <span style="color:#00C896;">{{ $email }}</span></p>
-                            </div>
-
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td style="background:#0e0e0e; padding:20px 40px; border:1px solid #1e1e1e; border-top:1px solid #1a1a1a; border-radius:0 0 16px 16px;">
-                            <table width="100%" cellpadding="0" cellspacing="0">
-                                <tr>
-                                    <td>
-                                        <p style="font-size:11px; color:#444444; margin:0; text-align:center; line-height:1.7;">
-                                            Email ini dikirim otomatis dari form kontak portfolio
-                                            <a href="#" style="color:#00C896; text-decoration:none; font-weight:500;">alfikar-radestian</a>
-                                            &nbsp;·&nbsp; © {{ date('Y') }} &nbsp;·&nbsp; Semua hak dilindungi
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-
-                </table>
-            </td>
-        </tr>
-    </table>
+        <div class="email-footer">
+            Email ini dikirim secara otomatis oleh sistem form kontak website Anda.
+        </div>
+    </div>
 
 </body>
 </html>
