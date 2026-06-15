@@ -12,9 +12,9 @@ class ContactMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $data;
+    public array $data;
 
-    public function __construct($data)
+    public function __construct(array $data)
     {
         $this->data = $data;
     }
