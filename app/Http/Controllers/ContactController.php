@@ -3,28 +3,60 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Http;
 
 class ContactController extends Controller
 {
-   public function send(Request $request)
-{
-    // Menyusun data dari form kontak
-    $data = [
-        'first_name' => $request->first_name,
-        'last_name'  => $request->last_name,
-        'email'      => $request->email,
-        'subject'    => $request->subject,
-        'pesan'      => $request->message,
-    ];
+    public function send(Request $request)
+    {
+        // 1. Validasi input form kontak
+        $request->validate([
+            'first_name' => 'required|string',
+            'last_name'  => 'required|string',
+            'email'      => 'required|email',
+            'subject'    => 'required|string',
+            'message'    => 'required|string',
+        ]);
 
-    // Menggunakan Mail::send standar Laravel agar bebas eror sintaksis VS Code
-    \Illuminate\Support\Facades\Mail::send('emails.contact', $data, function ($message) use ($data) {
-        $message->to('ohong02@gmail.com')
-                ->replyTo($data['email'], $data['first_name'] . ' ' . $data['last_name'])
-                ->subject('📩 Pesan Baru: ' . ($data['subject'] ?? 'Form Kontak'));
-    });
+        // 2. Mengambil API Key dari file .env / Railway Variables
+        $apiKey = env('BREVO_API_KEY');
 
-    return back()->with('success', 'Pesan Anda berhasil dikirim!');
-}
+        // 3. Mengirim data ke API Brevo menggunakan HTTP Client bawaan Laravel (Aman dari Timeout!)
+        $response = Http::withHeaders([
+            'api-key' => $apiKey,
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ])->post('https://api.brevo.com/v3/smtp/email', [
+            'sender' => [
+                'name' => $request->first_name . ' ' . $request->last_name,
+                'email' => 'aebcdd001@smtp-brevo.com' // 👈 WAJIB: Ganti dengan email yang terdaftar di akun Brevo-mu
+            ],
+            'to' => [
+                [
+                    'email' => 'ohong02@gmail.com', // 👈 Email tujuan penerima pesan
+                    'name' => 'Alfikar Radhestian'
+                ]
+            ],
+            'replyTo' => [
+                'email' => $request->email,
+                'name' => $request->first_name
+            ],
+            'subject' => '📩 Pesan Baru: ' . $request->subject,
+            'htmlContent' => '
+                <h3>Ada Pesan Baru dari Form Kontak Website!</h3>
+                <p><b>Nama:</b> ' . $request->first_name . ' ' . $request->last_name . '</p>
+                <p><b>Email Pengirim:</b> ' . $request->email . '</p>
+                <p><b>Subjek:</b> ' . $request->subject . '</p>
+                <p><b>Isi Pesan:</b></p>
+                <p>' . nl2br(e($request->message)) . '</p>
+            '
+        ]);
+
+        // 4. Cek apakah pengiriman sukses atau gagal
+        if ($response->successful()) {
+            return back()->with('success', 'Pesan Anda berhasil dikirim!');
+        }
+
+        return back()->with('error', 'Gagal mengirim pesan. Silakan coba beberapa saat lagi.');
+    }
 }
