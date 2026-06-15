@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
-use App\Mail\ContactMail; // Pastikan ini di-import
 
 class ContactController extends Controller
 {
@@ -34,8 +33,13 @@ class ContactController extends Controller
             'pesan'      => $request->message,
         ];
 
-        // 4. Proses pengiriman email menggunakan kelas Mailable resmi (Aman untuk Queue)
-        Mail::to('ohong02@gmail.com')->queue(new ContactMail($data));
+        // 4. Proses pengiriman email secara langsung (Synchronous)
+        Mail::send('emails.contact', $data, function ($mail) use ($data) {
+            $mail->from(config('mail.from.address', 'ohong02@gmail.com'), config('mail.from.name', 'Alfikar Portfolio'))
+                 ->to('ohong02@gmail.com')
+                 ->replyTo($data['email'], $data['first_name'] . ' ' . $data['last_name'])
+                 ->subject('📩 Pesan Baru: ' . ($data['subject'] ?? 'Portfolio Contact'));
+        });
 
         // 5. Kembali ke halaman form dengan pesan sukses hijau
         return back()->with('success', 'Pesan berhasil dikirim! Saya akan segera membalas.');
