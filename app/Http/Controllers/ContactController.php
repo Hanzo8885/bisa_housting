@@ -33,12 +33,32 @@ class ContactController extends Controller
             'pesan'      => $request->message, // Disamakan dengan {{ $pesan }} di HTML
         ];
 
-        // 4. Proses pengiriman email asli ke Gmail kamu
-        Mail::send('emails.contact', $data, function ($mail) use ($data) {
-            $mail->from(env('MAIL_FROM_ADDRESS', 'ohong02@gmail.com'), 'Alfikar Portfolio')
-                 ->to('ohong02@gmail.com')
-                 ->replyTo($data['email'], $data['first_name'] . ' ' . $data['last_name'])
-                 ->subject('📩 Pesan Baru: ' . ($data['subject'] ?? 'Portfolio Contact'));
+        // 4. Proses pengiriman email menggunakan QUEUE (Antrean) agar web anti-timeout
+        // Menggunakan config() menggantikan env() agar aman saat config dicache
+       // 4. Proses pengiriman email menggunakan Mailable Anonim (Format Laravel 11/12)
+        // 4. Proses pengiriman email menggunakan QUEUE (Antrean) lewat Mail Facade
+        Mail::to('ohong02@gmail.com')->queue(new class($data) extends \Illuminate\Mail\Mailable {
+            protected $data;
+
+            public function __construct($data)
+            {
+                $this->data = $data;
+            }
+
+            public function content(): \Illuminate\Mail\Mailables\Content
+            {
+                return new \Illuminate\Mail\Mailables\Content(
+                    view: 'emails.contact',
+                    with: $this->data,
+                );
+            }
+
+            public function envelope(): \Illuminate\Mail\Mailables\Envelope
+            {
+                return new \Illuminate\Mail\Mailables\Envelope(
+                    subject: '📩 Pesan Baru: ' . ($this->data['subject'] ?? 'Portfolio Contact'),
+                );
+            }
         });
 
         // 5. Kembali ke halaman form dengan pesan sukses hijau
