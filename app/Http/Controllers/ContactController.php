@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
-use App\Mail\ContactMail; // Pastikan ini di-import
+use App\Mail\ContactMail;
 
 class ContactController extends Controller
 {
