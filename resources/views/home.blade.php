@@ -241,9 +241,6 @@
             <a href="{{ route('contact') }}" class="btn-primary">
                 Hubungi Saya <i class="fas fa-arrow-up-right-from-square"></i>
             </a>
-            <a href="#" class="btn-outline">
-                Unduh CV <i class="fas fa-download"></i>
-            </a>
         </div>
 
         <div class="hero-social">
