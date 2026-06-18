@@ -142,18 +142,11 @@
     <a href="{{ route('home') }}" class="nav-logo">
         <div class="logo-icon">
             <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="46" height="46" rx="12" fill="#0D0D0D"/>
+                <circle cx="23" cy="23" r="21" stroke="#0D0D0D" stroke-width="1.5"/>
                 <text x="23" y="30" text-anchor="middle"
                       font-family="Georgia,'Times New Roman',serif"
-                      font-size="22" font-weight="700" fill="#FFFFFF">A</text>
-                <!-- Bracket kiri -->
-                <line x1="10" y1="12" x2="10" y2="34" stroke="#00C896" stroke-width="2.5" stroke-linecap="round"/>
-                <line x1="10" y1="12" x2="16" y2="12" stroke="#00C896" stroke-width="2.5" stroke-linecap="round"/>
-                <line x1="10" y1="34" x2="16" y2="34" stroke="#00C896" stroke-width="2.5" stroke-linecap="round"/>
-                <!-- Bracket kanan -->
-                <line x1="36" y1="12" x2="36" y2="34" stroke="#00C896" stroke-width="2.5" stroke-linecap="round"/>
-                <line x1="36" y1="12" x2="30" y2="12" stroke="#00C896" stroke-width="2.5" stroke-linecap="round"/>
-                <line x1="36" y1="34" x2="30" y2="34" stroke="#00C896" stroke-width="2.5" stroke-linecap="round"/>
+                      font-size="22" font-weight="700" fill="#0D0D0D">A</text>
+                <circle cx="23" cy="2" r="3" fill="#00C896"/>
             </svg>
         </div>
         <div class="logo-text-wrap">
@@ -170,7 +163,7 @@
         <li><a href="{{ route('home') }}"       class="{{ request()->routeIs('home')     ? 'active' : '' }}">Home</a></li>
         <li><a href="{{ route('about') }}"      class="{{ request()->routeIs('about')    ? 'active' : '' }}">About</a></li>
         <li><a href="{{ route('Biodata') }}"    class="{{ request()->routeIs('Biodata') ? 'active' : '' }}">Biodata</a></li>
-        <li><a href="{{ route('Hobby') }}"       class="{{ request()->routeIs('Hobby')    ? 'active' : '' }}">Hobby</a></li>
+        <li><a href="{{ route('Hobi') }}"       class="{{ request()->routeIs('Hobi')    ? 'active' : '' }}">Hobi</a></li>
         <li><a href="{{ route('contact') }}"    class="nav-cta {{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a></li>
     </ul>
 </nav>
