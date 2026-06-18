@@ -21,9 +21,9 @@ class PortfolioController extends Controller
         return view('Biodata', ['title' => 'Biodata – Alfikar Radestian Prasenja']);
     }
 
-    public function Hobi()
+    public function Hobby()
     {
-        return view('Hobi', ['title' => 'Hobi – Alfikar Radestian Prasenja']);
+        return view('Hobby', ['title' => 'Hobby – Alfikar Radestian Prasenja']);
     }
 
     public function contact()
