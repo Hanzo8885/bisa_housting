@@ -36,7 +36,7 @@
             border-bottom: 1px solid rgba(247, 233, 233, 0.06);
             transition: box-shadow .3s;
         }
-        nav.scrolled { box-shadow: 0 4px 24px rgba(255, 255, 255, 0.08); }
+        nav.scrolled { box-shadow: 0 4px 24px rgba(235, 235, 235, 0.08); }
 
         /* ── LOGO ─────────────────────────────────────────────────── */
         .nav-logo {
