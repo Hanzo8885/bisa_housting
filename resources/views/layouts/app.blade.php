@@ -171,7 +171,7 @@
         <li><a href="{{ route('about') }}"      class="{{ request()->routeIs('about')    ? 'active' : '' }}">About</a></li>
         <li><a href="{{ route('Biodata') }}"    class="{{ request()->routeIs('Biodata') ? 'active' : '' }}">Biodata</a></li>
         <li><a href="{{ route('Hobby') }}"       class="{{ request()->routeIs('Hobby')    ? 'active' : '' }}">Hobby</a></li>
-        <li><a href="{{ route('contact') }}"    class="nav-cta {{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a></li>
+        <li><a href="{{ route('contact') }}"    class=" {{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a></li>
     </ul>
 </nav>
 
