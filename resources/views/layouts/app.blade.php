@@ -74,8 +74,8 @@
             transition: color .2s, background .2s;
             position: relative;
         }
-        .nav-links a:hover { color: var(--black); background: var(--gray); }
-        .nav-links a.active { color: var(--black); }
+        .nav-links a:hover { color: var(--white); background: var(--gray); }
+        .nav-links a.active { color: var(--white); background: var(--green); }
         .nav-links a.active::before {
             content: ''; width: 6px; height: 6px; border-radius: 50%;
             background: var(--green);
@@ -182,7 +182,7 @@
 
 <!-- ── FOOTER ── -->
 <footer>
-    <div>
+    <div> 
         <div class="footer-brand">Alfikar Radestian Prasenja</div>
         <p>&copy; {{ date('Y') }} · a student from SMKN 2 Sukabumi City</p>
     </div>

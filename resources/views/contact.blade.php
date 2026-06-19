@@ -42,7 +42,7 @@
         border: 1.5px solid #ebebeb;
         border-radius: 20px;
         padding: 36px 40px;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+        box-shadow: 0 8px 32px rgba(209, 207, 207, 0.05);
     }
 
     /* Alert messages */
