@@ -62,32 +62,57 @@
             line-height: 1;
         }
 
-        /* ── NAV LINKS ────────────────────────────────────────────── */
+        /* ── NAV LINKS (UPDATED) ──────────────────────────────────── */
         .nav-links {
             display: flex; align-items: center; gap: 6px;
             list-style: none;
         }
         .nav-links a {
-            text-decoration: none; color: var(--muted);
-            font-size: .9rem; font-weight: 500;
-            padding: 6px 14px; border-radius: 6px;
-            transition: color .2s, background .2s;
+            text-decoration: none; 
+            color: var(--muted); /* Warna normal abu-abu gelap (tidak hitam pekat) */
+            font-size: .9rem; 
+            font-weight: 500;
+            padding: 6px 14px; 
+            border-radius: 6px;
             position: relative;
+            display: inline-block;
+            /* Transisi halus saat warna atau ukuran text berubah */
+            transition: color .2s, background .2s, transform .1s, font-size .1s, padding-left .2s;
         }
-        .nav-links a:hover { color: var(--white); background: var(--gray); }
-        .nav-links a.active { color: var(--white); background: var(--green); }
+        
+        /* Efek Hover (Saat kursor di atas menu) */
+        .nav-links a:hover { 
+            color: var(--black); 
+            background: var(--gray); 
+        }
+        
+        /* Efek Active (Saat halaman menu tersebut sedang dibuka) */
+        .nav-links a.active { 
+            color: var(--green); 
+            font-weight: 600;
+            padding-left: 20px; /* Jarak aman di kiri agar teks tidak tertabrak titik indikator */
+            background: transparent;
+        }
         .nav-links a.active::before {
             content: ''; width: 6px; height: 6px; border-radius: 50%;
             background: var(--green);
-            position: absolute; left: 2px; top: 50%; transform: translateY(-50%);
+            position: absolute; left: 6px; top: 50%; transform: translateY(-50%);
         }
+        
+        /* Efek Klik (Saat tombol dipencet / ditekan) */
+        .nav-links a:active {
+            transform: scale(0.95); /* Sedikit mengecil untuk feedback klik yang responsif */
+            font-size: 0.85rem;     /* Ukuran teks berubah menjadi sedikit lebih kecil saat dipencet */
+        }
+        
+        /* Tombol Navigasi Khusus (Jika dipakai) */
         .nav-cta {
             background: var(--black) !important; color: var(--white) !important;
             padding: 8px 20px !important; border-radius: 8px !important;
         }
-        .nav-cta:hover { background: #333 !important; }
+        .nav-cta:hover { background: #333 !important; color: #fff !important; }
 
-        /* Hamburger */
+        /* Hamburger Menu untuk Mobile */
         .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
         .nav-toggle span {
             display: block; width: 24px; height: 2px;
@@ -113,7 +138,7 @@
         footer p { font-size: .85rem; }
         footer a { color: var(--green); text-decoration: none; }
 
-        /* ── RESPONSIVE ───────────────────────────────────────────── */
+        /* ── RESPONSIVE MOBILE ────────────────────────────────────── */
         @media (max-width: 768px) {
             .nav-toggle { display: block; }
             .nav-links {
@@ -129,6 +154,8 @@
                 transform: translateY(0); opacity: 1; pointer-events: all;
             }
             .nav-links a { width: 100%; padding: 10px 14px; }
+            .nav-links a.active { padding-left: 24px; }
+            .nav-links a.active::before { left: 10px; }
         }
     </style>
     @stack('styles')
@@ -171,7 +198,7 @@
         <li><a href="{{ route('about') }}"      class="{{ request()->routeIs('about')    ? 'active' : '' }}">About</a></li>
         <li><a href="{{ route('Biodata') }}"    class="{{ request()->routeIs('Biodata') ? 'active' : '' }}">Biodata</a></li>
         <li><a href="{{ route('Hobby') }}"       class="{{ request()->routeIs('Hobby')    ? 'active' : '' }}">Hobby</a></li>
-        <li><a href="{{ route('contact') }}"    class=" {{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a></li>
+        <li><a href="{{ route('contact') }}"    class="{{ request()->routeIs('contact')  ? 'active' : '' }}">Contact</a></li>
     </ul>
 </nav>
 
