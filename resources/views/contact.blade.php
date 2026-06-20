@@ -3,194 +3,180 @@
 
 @push('styles')
 <style>
-    /* ── CONTACT PAGE ─────────────────────────────────────────── */
+    /* ── CONTACT LAYOUT (Unique to Contact) ──────────────────── */
     .contact-wrap {
-        max-width: 1100px;
+        padding: 100px 5%;
+        max-width: 1200px;
         margin: 0 auto;
-        padding: 80px 5%;
         display: grid;
-        grid-template-columns: 1fr 1.4fr;
-        gap: 80px;
-        align-items: flex-start;
+        grid-template-columns: 1fr 1.3fr;
+        gap: 60px;
+        align-items: center;
     }
-
-    /* ── LEFT: INFO ───────────────────────────────────────────── */
+    
+    /* ── LEFT COLUMN (Unique to Contact) ────────────────────── */
     .contact-info .section-label {
         font-size: .75rem; font-weight: 700; letter-spacing: 2px;
         color: var(--green); text-transform: uppercase; margin-bottom: 12px;
     }
     .contact-info h1 {
-        font-family: var(--font-display);
-        font-size: clamp(2rem, 3.5vw, 2.8rem);
-        font-weight: 800; color: var(--black);
-        letter-spacing: -1px; line-height: 1.15;
-        margin-bottom: 20px;
+        font-family: var(--font-display); font-size: clamp(2.4rem, 4.5vw, 3rem);
+        font-weight: 800; color: var(--black); letter-spacing: -1px;
+        line-height: 1.1; margin-bottom: 24px;
     }
-    .contact-info > p {
+    .contact-info p {
         color: var(--muted); line-height: 1.75; font-size: .95rem;
-        margin-bottom: 32px;
+        margin-bottom: 48px; max-width: 480px;
     }
-    .contact-detail {
-        display: flex; align-items: center; gap: 12px;
-        margin-top: 16px; color: var(--text); font-size: .9rem;
+    
+    /* Custom contact list with unique icons (Unique to Contact) */
+    .contact-list { display: flex; flex-direction: column; gap: 20px; }
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        color: var(--text);
+        font-size: .95rem;
     }
-    .contact-detail i { color: var(--green); width: 20px; text-align: center; }
-
-    /* ── RIGHT: FORM ──────────────────────────────────────────── */
+    .contact-item .icon-box {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: rgba(0,200,150,.10);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        color: var(--green);
+    }
+    .contact-item a { color: var(--text); text-decoration: none; transition: color .2s; }
+    .contact-item a:hover { color: var(--green); }
+    
+    /* ── RIGHT COLUMN (Unique to Contact) ───────────────────── */
+    /* Modern Form Design (Unique to Contact) */
     .contact-form {
         background: #fff;
+        border-radius: 24px;
+        padding: 48px;
         border: 1.5px solid #ebebeb;
-        border-radius: 20px;
-        padding: 36px 40px;
-        box-shadow: 0 8px 32px rgba(209, 207, 207, 0.05);
+        box-shadow: 0 10px 40px rgba(0,0,0,.03);
     }
-
-    /* Alert messages */
-    .alert-success {
-        background: #d1fae5; color: #065f46;
-        padding: 14px 18px; border-radius: 10px;
-        margin-bottom: 24px; font-size: .88rem;
-        display: flex; align-items: center; gap: 8px;
-    }
-    .alert-error {
-        background: #fee2e2; color: #991b1b;
-        padding: 14px 18px; border-radius: 10px;
-        margin-bottom: 24px; font-size: .88rem;
-        display: flex; align-items: center; gap: 8px;
-    }
-
-    /* Form fields */
-    .form-group { margin-bottom: 20px; }
+    
+    .form-group { margin-bottom: 28px; }
     .form-group label {
-        display: block; font-size: .78rem; font-weight: 600;
-        color: var(--text); margin-bottom: 6px; letter-spacing: .5px;
+        display: block; font-size: .8rem; font-weight: 600;
+        color: var(--text); margin-bottom: 8px; letter-spacing: .5px;
         text-transform: uppercase;
     }
+    
+    /* Modern inputs with background */
     .form-group input,
     .form-group textarea {
-        width: 100%; padding: 12px 16px;
-        border: 1.5px solid #e0e0e0; border-radius: 10px;
-        font-family: var(--font-body); font-size: .9rem;
-        color: var(--text); background: #fafafa; outline: none;
+        width: 100%;
+        padding: 14px 20px;
+        border: 1.5px solid #e0e0e0;
+        border-radius: 10px;
+        font-family: var(--font-body);
+        font-size: .9rem;
+        color: var(--text);
+        background: #fbfbfb;
         transition: border-color .2s, background .2s;
         box-sizing: border-box;
     }
     .form-group input:focus,
     .form-group textarea:focus {
-        border-color: var(--green); background: #fff;
+        outline: none;
+        border-color: var(--green);
+        background: #fff;
     }
-    .form-group textarea { min-height: 140px; resize: vertical; }
-
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-    /* Submit button */
-    .btn-submit {
-        background: var(--black); color: #fff;
-        width: 100%; padding: 14px;
-        border: none; border-radius: 10px;
-        font-family: var(--font-body); font-size: .95rem; font-weight: 600;
-        cursor: pointer; transition: background .2s, transform .2s;
-        display: flex; align-items: center; justify-content: center; gap: 8px;
-        margin-top: 8px;
+    
+    .form-group textarea { min-height: 160px; resize: vertical; }
+    
+    /* Floating action button style for contact */
+    .btn-send {
+        background: var(--black);
+        color: #fff;
+        width: 100%;
+        padding: 16px;
+        border: none;
+        border-radius: 12px;
+        font-family: var(--font-body);
+        font-size: .95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform .2s, background .2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
     }
-    .btn-submit:hover { background: #333; transform: translateY(-2px); }
-
-    /* ── RESPONSIVE ───────────────────────────────────────────── */
+    .btn-send:hover {
+        background: #333;
+        transform: translateY(-2px);
+    }
+    
     @media (max-width: 900px) {
-        .contact-wrap {
-            grid-template-columns: 1fr;
-            gap: 48px;
-        }
-    }
-    @media (max-width: 560px) {
-        .form-row { grid-template-columns: 1fr; }
-        .contact-form { padding: 24px 20px; }
+        .contact-wrap { grid-template-columns: 1fr; gap: 60px; }
+        .contact-form { padding: 30px; }
     }
 </style>
 @endpush
 
 @section('content')
-<div class="contact-wrap">
 
-    {{-- ── LEFT: INFO ── --}}
-    <div class="contact-info">
-        <div class="section-label">Kontak</div>
+<div class="contact-wrap">
+    
+    <!-- Left Column (inspired by image_4.png) -->
+    <aside class="contact-info">
+        <span class="section-label">Kontak</span>
         <h1>Yuk,<br>berkolaborasi!</h1>
         <p>Punya ide proyek, sistem yang ingin dibangun, atau tertarik untuk berdiskusi seputar rekayasa perangkat lunak dan web development? Saya sangat terbuka untuk kesempatan magang (PKL), proyek kolaborasi, maupun diskusi teknologi.</p>
-
-        <div class="contact-detail">
-            <i class="fas fa-envelope"></i>
-            ohong02@gmail.com
+        
+        <div class="contact-list">
+            <div class="contact-item">
+                <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                ohong02@gmail.com
+            </div>
+            <div class="contact-item">
+                <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                Sukabumi, Jawa Barat, Indonesia
+            </div>
+            <div class="contact-item">
+                <div class="icon-box"><i class="fab fa-github"></i></div>
+                <a href="https://github.com/Hanzo8885" target="_blank" rel="noopener noreferrer">github.com/Hanzo8885</a>
+            </div>
         </div>
-        <div class="contact-detail">
-            <i class="fas fa-map-marker-alt"></i>
-            Sukabumi, Jawa Barat, Indonesia
-        </div>
-        <div class="contact-detail">
-            <i class="fab fa-github"></i>
-            <a href="https://github.com/Hanzo8885" target="_blank" rel="noopener noreferrer"
-               style="color:var(--text); text-decoration:none;">
-                Github/in/Hanzo8885
-            </a>
-        </div>
-    </div>
-
-    {{-- ── RIGHT: FORM ── --}}
-    <form class="contact-form" method="POST" action="{{ route('contact.send') }}">
+    </aside>
+    
+    <!-- Right Column (Modern Form) (inspired by image_4.png) -->
+    <form class="contact-form" method="POST" action="">
         @csrf
-
-        @if(session('success'))
-            <div class="alert-success">
-                ✅ {{ session('success') }}
-            </div>
-        @endif
-
-        @if($errors->any())
-            <div class="alert-error">
-                ❌ {{ $errors->first() }}
-            </div>
-        @endif
-
-        <div class="form-row">
-            <div class="form-group">
-                <label>Nama Depan</label>
-                <input type="text" name="first_name"
-                       placeholder="John"
-                       value="{{ old('first_name') }}" required>
-            </div>
-            <div class="form-group">
-                <label>Nama Belakang</label>
-                <input type="text" name="last_name"
-                       placeholder="Doe"
-                       value="{{ old('last_name') }}" required>
-            </div>
-        </div>
-
+        
         <div class="form-group">
-            <label>Alamat Email</label>
-            <input type="email" name="email"
-                   placeholder="kamu@contoh.com"
-                   value="{{ old('email') }}" required>
+            <label for="name">Nama Lengkap</label>
+            <input type="text" name="name" id="name" placeholder="John Doe" required>
         </div>
-
+        
         <div class="form-group">
-            <label>Subjek</label>
-            <input type="text" name="subject"
-                   placeholder="Penawaran Magang / Pengembangan Aplikasi / Diskusi"
-                   value="{{ old('subject') }}">
+            <label for="email">Alamat Email</label>
+            <input type="email" name="email" id="email" placeholder="kamu@contoh.com" required>
         </div>
-
+        
         <div class="form-group">
-            <label>Pesan</label>
-            <textarea name="message"
-                      placeholder="Ceritakan detail proyek atau rencana kolaborasimu di sini..."
-                      required>{{ old('message') }}</textarea>
+            <label for="subject">Subjek</label>
+            <input type="text" name="subject" id="subject" placeholder="Subjek pesanmu">
         </div>
-
-        <button type="submit" class="btn-submit">
+        
+        <div class="form-group">
+            <label for="message">Pesan</label>
+            <textarea name="message" id="message" placeholder="Tuliskan pesan atau detail proyekmu di sini..." required></textarea>
+        </div>
+        
+        <button type="submit" class="btn-send">
             Kirim Pesan <i class="fas fa-paper-plane"></i>
         </button>
     </form>
 
 </div>
+
 @endsection
