@@ -3,207 +3,210 @@
 
 @push('styles')
 <style>
-    /* ── BIODATA WRAPPER (Unique to Biodata) ──────────────────── */
-    .biodata-page-wrap {
-        padding: 100px 5%;
-        max-width: 1000px;
-        margin: 0 auto;
+    .page-hero {
+        padding: 80px 5% 60px;
+        background: var(--gray);
+        text-align: center;
     }
-    
-    /* ── FLOATING PROFILE CARD (Unique to Biodata) ────────────── */
-    .profile-card {
-        background: #fff;
-        border: 1.5px solid #ebebeb;
-        border-radius: 24px;
-        padding: 48px;
-        display: grid;
-        grid-template-columns: 200px 1fr;
-        gap: 48px;
-        box-shadow: 0 10px 40px rgba(0,0,0,.05); /* Floating shadow */
-        margin-bottom: 60px;
+    .page-hero .section-label {
+        font-size: .75rem; font-weight: 700; letter-spacing: 2px;
+        color: var(--green); text-transform: uppercase; margin-bottom: 12px;
     }
-    
-    .profile-left {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
+    .page-hero h1 {
+        font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800; color: var(--black); letter-spacing: -1px;
     }
-    
-    /* Square photo frame for the card */
-    .card-photo-frame {
-        width: 180px;
-        height: 180px;
-        border-radius: 18px;
-        background: #f0f0f0;
-        overflow: hidden;
-        border: 2px solid #e9e9e9;
-    }
-    .card-photo-frame img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    
-    /* Social media links below photo on card */
-    .card-social {
-        display: flex;
-        gap: 12px;
-        font-size: 1.1rem;
-        color: var(--muted);
-    }
-    .card-social a { color: var(--muted); text-decoration: none; transition: color .2s; }
-    .card-social a:hover { color: var(--green); }
 
-    .profile-right h1 {
-        font-family: var(--font-display);
-        font-size: 2.2rem;
-        font-weight: 800;
-        color: var(--black);
-        letter-spacing: -1px;
-        margin-bottom: 6px;
+    /* ── BIODATA CARD ── */
+    .biodata-wrap {
+        padding: 80px 5%; max-width: 900px; margin: 0 auto;
     }
-    .profile-right .role {
-        font-size: 1rem;
-        color: var(--green);
-        font-weight: 600;
-        margin-bottom: 24px;
+    .biodata-card {
+        background: #fff; border: 1.5px solid #ebebeb;
+        border-radius: 20px; padding: 48px;
+        display: flex; gap: 48px; flex-wrap: wrap; align-items: flex-start;
+        box-shadow: 0 8px 32px rgba(0,0,0,.04);
     }
-    
-    /* Flat layout for details table */
-    .details-table {
-        width: 100%;
-        border-collapse: collapse;
+    .biodata-photo {
+        width: 180px; height: 220px; border-radius: 14px;
+        background: var(--gray);
+        overflow: hidden; flex-shrink: 0;
+        border: 2px solid #e0e0e0;
     }
-    .details-table td {
-        padding: 12px 0;
-        border-bottom: 1px solid #f0f0f0;
-        font-size: .92rem;
-        line-height: 1.6;
+    .biodata-photo img {
+        width: 100%; height: 100%; object-fit: cover;
     }
-    .details-table td:first-child {
-        font-weight: 600;
-        color: var(--text);
-        width: 160px;
-        padding-right: 20px;
+    .biodata-photo-placeholder {
+        width: 100%; height: 100%;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 60px; opacity: .2;
     }
-    .details-table td:last-child { color: var(--muted); }
-    .details-table tr:last-child td { border-bottom: none; }
-
-    /* ── TIMELINE SECTION (Unique to Biodata) ────────────────── */
-    .biodata-timeline h2 {
-        font-family: var(--font-display);
-        font-size: 1.6rem;
-        font-weight: 700;
-        color: var(--black);
-        margin-bottom: 32px;
-        margin-top: 40px;
-    }
-    
-    .timeline { display: flex; flex-direction: column; gap: 20px; }
-    .timeline-item {
-        display: grid;
-        grid-template-columns: 20px 1fr;
-        gap: 20px;
-        align-items: flex-start;
-    }
-    
-    /* Green dot marker */
-    .timeline-dot {
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: var(--green);
-        margin-top: 6px;
-        box-shadow: 0 0 0 4px rgba(0,200,150,.15);
-    }
-    
-    .timeline-content h4 {
-        font-weight: 700;
-        color: var(--black);
-        font-size: .98rem;
+    .biodata-info { flex: 1; min-width: 240px; }
+    .biodata-name {
+        font-family: var(--font-display); font-size: 1.8rem;
+        font-weight: 800; color: var(--black); letter-spacing: -.5px;
         margin-bottom: 4px;
     }
+    .biodata-role {
+        font-size: .95rem; color: var(--green); font-weight: 600;
+        margin-bottom: 20px;
+    }
+    .biodata-table { width: 100%; border-collapse: collapse; margin-bottom: 28px; }
+    .biodata-table tr td {
+        padding: 10px 0; vertical-align: top;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: .9rem; color: var(--text); line-height: 1.5;
+    }
+    .biodata-table tr:last-child td { border-bottom: none; }
+    .biodata-table td:first-child {
+        font-weight: 600; color: var(--muted);
+        width: 150px; padding-right: 16px;
+    }
+    .biodata-table td:last-child { color: var(--black); }
+
+    /* ── EDUCATION SECTION ── */
+    .section-title {
+        font-family: var(--font-display); font-size: 1.3rem;
+        font-weight: 700; color: var(--black); margin: 48px 0 20px;
+        padding-bottom: 10px; border-bottom: 2px solid var(--green);
+        display: inline-block;
+    }
+    .timeline { display: flex; flex-direction: column; gap: 20px; }
+    .timeline-item {
+        display: flex; gap: 20px; align-items: flex-start;
+    }
+    .timeline-dot {
+        width: 14px; height: 14px; border-radius: 50%;
+        background: var(--green); flex-shrink: 0; margin-top: 5px;
+        box-shadow: 0 0 0 4px rgba(0,200,150,.15);
+    }
+    .timeline-content h4 {
+        font-weight: 700; color: var(--black); font-size: .95rem;
+        margin-bottom: 3px;
+    }
     .timeline-content span {
-        font-size: .85rem;
-        color: var(--muted);
+        font-size: .82rem; color: var(--muted);
     }
 
-    /* ── RESPONSIVE ─────────────────────────────────────────── */
-    @media (max-width: 800px) {
-        .profile-card {
-            grid-template-columns: 1fr;
-            padding: 30px;
-            text-align: center;
-        }
-        .details-table td:first-child { width: auto; padding-right: 0; display: block; margin-bottom: 4px;}
-        .details-table td { display: block; border-bottom: none; padding: 10px 0; }
-        .details-table td:last-child { color: var(--text); border-bottom: 1px solid #f0f0f0; padding-bottom: 15px;}
+    /* ── CERTIFICATES ── */
+    .cert-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 16px; margin-top: 4px;
+    }
+    .cert-card {
+        background: var(--gray); border: 1.5px solid #ebebeb;
+        border-radius: 12px; padding: 20px 22px;
+        transition: border-color .2s, transform .2s;
+    }
+    .cert-card:hover { border-color: var(--green); transform: translateY(-2px); }
+    .cert-card h4 { font-size: .9rem; font-weight: 700; color: var(--black); margin-bottom: 4px; }
+    .cert-card span { font-size: .8rem; color: var(--muted); }
+
+    @media (max-width: 640px) {
+        .biodata-card { padding: 28px 22px; }
+        .biodata-photo { width: 100%; height: 200px; }
     }
 </style>
 @endpush
 
 @section('content')
+<section class="page-hero">
+    <div class="section-label">Biodata</div>
+    <h1>Mengenal Lebih Dekat</h1>
+</section>
 
-<div class="biodata-page-wrap">
-    
-    <!-- Floating Profile Card -->
-    <section class="profile-card">
-        <div class="profile-left">
-            <div class="card-photo-frame">
-                <img src="{{ asset('images/photo.jpg') }}" alt="Alfikar Radestian Prasenja">
-            </div>
-            <div class="card-social">
-                <a href="https://github.com/Hanzo8885" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://instagram.com/kinemon973" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            </div>
+<div class="biodata-wrap">
+
+    {{-- ── KARTU BIODATA ── --}}
+    <div class="biodata-card">
+        <div class="biodata-photo">
+            <img src="{{ asset('images/photo.jpg') }}" alt="Alfikar Radestian Prasenja"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="biodata-photo-placeholder" style="display:none;">👤</div>
         </div>
-        
-        <div class="profile-right">
-            <h1>Alfikar Radestian Prasenja</h1>
-            <p class="role">Student & Creative Designer</p>
-            
-            <table class="details-table">
-                <tr><td>Nama Lengkap</td><td>Alfikar Radestian Prasenja</td></tr>
-                <tr><td>Tempat, Tgl Lahir</td><td>Sukabumi, 12 Desember 2008</td></tr>
-                <tr><td>Jenis Kelamin</td><td>Laki-laki</td></tr>
-                <tr><td>Agama</td><td>Islam</td></tr>
-                <tr><td>Alamat</td><td>Nyompolong, Jalan Pabuaran, RT1/RW2</td></tr>
-                <tr><td>Email</td><td>ohong02@gmail.com</td></tr>
-                <tr><td>Status</td><td>Pelajar</td></tr>
+
+        <div class="biodata-info">
+            <div class="biodata-name">Alfikar Radestian Prasenja</div>
+            <div class="biodata-role">Student &amp; Creative Designer</div>
+
+            <table class="biodata-table">
+                <tr>
+                    <td>Nama Lengkap</td>
+                    <td>Alfikar Radestian Prasenja</td>
+                </tr>
+                <tr>
+                    <td>Tempat, Tgl Lahir</td>
+                    <td>Sukabumi, 12 Desember 2008</td>
+                </tr>
+                <tr>
+                    <td>Jenis Kelamin</td>
+                    <td>Laki-laki</td>
+                </tr>
+                <tr>
+                    <td>Agama</td>
+                    <td>Islam</td>
+                </tr>
+                <tr>
+                    <td>Alamat</td>
+                    <td>nyompolong, Jalan pabuaran,   RT1/RW2</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>ohong02@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Instagram</td>
+                    <td>@kinemon973/fikar</td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>Pelajar</td>
+                </tr>
             </table>
         </div>
-    </section>
-    
-    <!-- Timeline Section -->
-    <section class="biodata-timeline">
-        <h2>Riwayat Pendidikan</h2>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h4>Sekolah Saat Ini</h4>
-                    <span>SMKN 2 Kota Sukabumi / Jurusan RPL &nbsp;·&nbsp; 2023 – Sekarang</span>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h4>SMP</h4>
-                    <span>SMPN 10 Kota Sukabumi &nbsp;·&nbsp; 2020 – 2023</span>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h4>SD</h4>
-                    <span>SDN Cimanggah 1 Kota Sukabumi &nbsp;·&nbsp; 2014 – 2020</span>
-                </div>
+    </div>
+
+    {{-- ── PENDIDIKAN ── --}}
+    <div class="section-title">Riwayat Pendidikan</div>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h4>Sekolah Saat Ini</h4>
+                <span>SMKN 2 KOTA Sukabumi /Jurusan RPL  &nbsp;·&nbsp; 2026 – Sekarang</span>
             </div>
         </div>
-    </section>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h4>SMP</h4>
+                <span>SMP 10 KOTA Sukabumi &nbsp;·&nbsp; 2020 – 2023</span>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h4>SD</h4>
+                <span>SDN Cimanggah 1 KOTA Sukabumi &nbsp;·&nbsp; 2017 – 2020</span>
+            </div>
+        </div>
+    </div>
 
+    {{-- ── SERTIFIKAT ── --}}
+    <<div class="section-title">Sertifikat &amp; Penghargaan</div>
+<div class="cert-grid">
+    <div class="cert-card">
+        <h4>Juara Festival Renang Walikota Cup</h4>
+        <span>Sukabumi &nbsp;·&nbsp; 2017</span>
+    </div>
+    <div class="cert-card">
+        <h4>Ujian Kenaikan Tingkat (UKT) Sabuk Taekwondo</h4>
+        <span>Pengcab Taekwondo Indonesia &nbsp;·&nbsp; 2022</span>
+    </div>
+    <div class="cert-card">
+        <h4>English Proficiency Achievement</h4>
+        <span>IF English Academy &nbsp;·&nbsp; 2025</span>
+    </div>
 </div>
-
 @endsection
