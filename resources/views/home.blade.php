@@ -231,7 +231,7 @@
             👋 Halo semua, saya Alfikar Radestian Prasenja
         </div>
 
-        <h1>Back-End Dev &amp\\; <br>Pelajar <em>RPL</em></h1>
+        <h1>Back-End Dev &amp; <br>Pelajar <em>RPL</em></h1>
 
         <p class="hero-desc">
             Saya adalah siswa SMKN 2 Kota Sukabumi, jurusan Rekayasa Perangkat Lunak yang berfokus pada web development dan pembuatan aplikasi pemrograman. Senang mengeksplorasi arsitektur kode di framework Laravel, Visual Studio, hingga integrasi database.
