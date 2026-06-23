@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', $title ?? 'Hobby – Alfikar Radestian Prasenja')
+@section('title', $title ?? 'Hobi – Alfikar Radestian Prasenja')
 
 @push('styles')
 <style>
@@ -105,16 +105,6 @@
         text-transform: uppercase;
     }
 
-    /* Titik Intensitas */
-    .Hobby-intensity { display: flex; align-items: center; gap: 5px; }
-    .Hobby-intensity .dot {
-        width: 8px; height: 8px; border-radius: 50%;
-        background: #e2e8f0;
-    }
-    .Hobby-intensity .dot.filled { 
-        background: var(--cat-color); 
-    }
-
     /* ── VARIABLE WARNA KATEGORI (Teks & Background Soft) ── */
     .cat-olahraga  { --cat-color: #0ea5e9; --cat-bg: rgba(14, 165, 233, 0.12); } /* Biru */
     .cat-seni      { --cat-color: #d946ef; --cat-bg: rgba(217, 70, 239, 0.12); } /* Pink/Ungu */
@@ -153,7 +143,7 @@
 
 @section('content')
 <section class="page-hero">
-    <div class="section-label">Hobby &amp; Minat</div>
+    <div class="section-label">Hobi &amp; Minat</div>
     <h1>Hal-hal yang aku suka.</h1>
     <p>Di luar dunia desain dan kode, ini adalah aktivitas yang mengisi hari-hariku dengan semangat dan kreativitas baru.</p>
 </section>
@@ -167,9 +157,6 @@
         <p>Media utama saya untuk menjaga kebugaran tubuh sekaligus menyegarkan pikiran. Sangat menikmati tantangan fisik di dalam air.</p>
         <div class="Hobby-footer">
             <span class="Hobby-tag">Olahraga</span>
-            <div class="Hobby-intensity" title="Intensitas: Sering">
-                <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
-            </div>
         </div>
       </div>
 
@@ -179,9 +166,6 @@
         <p>Cara andalan menjaga fisik di pagi hari. Aktivitas ini menjadi momen terbaik untuk menjernihkan pikiran dari rutinitas harian.</p>
         <div class="Hobby-footer">
             <span class="Hobby-tag">Olahraga</span>
-            <div class="Hobby-intensity" title="Intensitas: Sangat sering">
-                <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
-            </div>
         </div>
       </div>
 
@@ -191,33 +175,24 @@
         <p>Gudang inspirasi mencari ide visual dan efek suara. Alur cerita yang kuat sering kali memicu kreativitas untuk projek pribadi.</p>
         <div class="Hobby-footer">
             <span class="Hobby-tag">Seni</span>
-            <div class="Hobby-intensity" title="Intensitas: Cukup sering">
-                <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
-            </div>
         </div>
       </div>
 
       <div class="Hobby-card cat-teknologi">
         <div class="Hobby-icon-wrapper"><i class="fa-solid fa-code"></i></div>
-        <h3>Coding &amp; Web Dev</h3>
+        <h3>Koding &amp; Pengembangan Web</h3>
         <p>Membangun aplikasi web dan mengeksplorasi teknologi baru. Berfokus pada pengembangan UI modern hingga framework Laravel.</p>
         <div class="Hobby-footer">
             <span class="Hobby-tag">Teknologi</span>
-            <div class="Hobby-intensity" title="Intensitas: Setiap hari">
-                <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
-            </div>
         </div>
       </div>
 
       <div class="Hobby-card cat-hiburan">
         <div class="Hobby-icon-wrapper"><i class="fa-solid fa-gamepad"></i></div>
-        <h3>Gaming</h3>
+        <h3>Bermain Game</h3>
         <p>Sarana relaksasi di kala senggang. Sangat tertarik pada game dengan jalan cerita mendalam dan antarmuka UI yang memanjakan mata.</p>
         <div class="Hobby-footer">
             <span class="Hobby-tag">Hiburan</span>
-            <div class="Hobby-intensity" title="Intensitas: Cukup sering">
-                <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
-            </div>
         </div>
       </div>
 
@@ -227,9 +202,6 @@
         <p>Ritual wajib untuk produktivitas. Alunan Genre Indie Pop atau Pop Rock sangat ampuh membantu saya menjaga fokus saat ngoding.</p>
         <div class="Hobby-footer">
             <span class="Hobby-tag">Hiburan</span>
-            <div class="Hobby-intensity" title="Intensitas: Setiap hari">
-                <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
-            </div>
         </div>
       </div>
 
