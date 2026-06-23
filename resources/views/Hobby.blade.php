@@ -229,7 +229,7 @@
       </div>
 
       <div class="Hobby-card cat-hiburan">
-       <div class="Hobby-photo" style="background-image:url('{{ asset('images/hobby/musik.jpeg') }}')"></div>
+       <img src="{{ asset('images/hobby/musik.jpg') }}" alt="Alfikar Radestian Prasenja">
         <div class="Hobby-icon-chip"><i class="fa-solid fa-music"></i></div>
         <h3>Musik</h3>
         <p>Ritual harian yang wajib untuk menemani waktu produktif. Alunan musik Genre Indie Pop, Pop Rock, atau soundtrack film sangat ampuh membantu saya menjaga fokus saat sedang ngoding.</p>
