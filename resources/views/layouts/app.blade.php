@@ -118,6 +118,9 @@
 
         .nav-links a:active { transform: scale(0.96); }
 
+        /* Ikon di tiap link hanya untuk tampilan mobile */
+        .nav-links a i { display: none; }
+
         /* Tombol Navigasi Khusus (Jika dipakai) */
         .nav-cta {
             background: var(--black) !important; color: var(--white) !important;
@@ -171,23 +174,65 @@
         /* ── RESPONSIVE MOBILE ────────────────────────────────────── */
         @media (max-width: 768px) {
             .nav-toggle { display: block; }
+
+            /* Overlay gelap di belakang menu, supaya menu "mengapung" bukan blok putih polos */
+            .nav-overlay {
+                position: fixed; inset: 0; z-index: 90;
+                background: rgba(13,13,13,0.35);
+                backdrop-filter: blur(2px);
+                opacity: 0; pointer-events: none;
+                transition: opacity .3s ease;
+            }
+            .nav-overlay.open { opacity: 1; pointer-events: all; }
+
             .nav-links {
-                position: fixed; top: 76px; left: 0; right: 0;
-                background: #fff; flex-direction: column; align-items: flex-start;
-                padding: 16px 5% 24px; gap: 4px;
-                border-bottom: 1px solid #eee;
-                box-shadow: 0 12px 24px rgba(13,13,13,.06);
-                transform: translateY(-12px); opacity: 0;
+                position: fixed; top: 76px; left: 0; right: 0; z-index: 95;
+                background: #fff;
+                flex-direction: column; align-items: stretch;
+                padding: 10px 5% 28px; gap: 0;
+                border-radius: 0 0 20px 20px;
+                box-shadow: 0 20px 40px rgba(13,13,13,.12);
+                transform: translateY(-16px); opacity: 0;
                 transition: transform .3s ease, opacity .3s ease;
                 pointer-events: none;
+                max-height: calc(100vh - 76px);
+                overflow-y: auto;
             }
             .nav-links.open {
                 transform: translateY(0); opacity: 1; pointer-events: all;
             }
-            .nav-links a { width: 100%; padding: 12px 14px; }
-            .nav-links a::after { left: 14px; bottom: 6px; transform: none; }
+
+            .nav-links li { border-bottom: 1px solid var(--gray); }
+            .nav-links li:last-child { border-bottom: none; }
+
+            .nav-links a {
+                width: 100%; padding: 16px 14px;
+                font-size: 1.02rem;
+                border-radius: 10px;
+                gap: 12px;
+                opacity: 0; transform: translateX(-8px);
+                transition: color .2s ease, background .2s ease,
+                            opacity .35s ease, transform .35s ease;
+            }
+            /* animasi stagger muncul satu-satu saat menu dibuka */
+            .nav-links.open a { opacity: 1; transform: translateX(0); }
+            .nav-links.open li:nth-child(1) a { transition-delay: .03s; }
+            .nav-links.open li:nth-child(2) a { transition-delay: .08s; }
+            .nav-links.open li:nth-child(3) a { transition-delay: .13s; }
+            .nav-links.open li:nth-child(4) a { transition-delay: .18s; }
+            .nav-links.open li:nth-child(5) a { transition-delay: .23s; }
+
+            .nav-links a i { display: inline-block; width: 18px; text-align: center; color: var(--green); font-size: .95rem; }
+
+            .nav-links a::after { left: 14px; bottom: 8px; transform: none; }
             .nav-links a:hover::after, .nav-links a.active::after { width: 22px; }
-            .nav-cta { margin-left: 0; margin-top: 6px; width: 100%; justify-content: center; }
+            .nav-links a.active { padding-left: 14px; }
+
+            .nav-cta {
+                margin-left: 0; margin-top: 14px; width: 100%;
+                justify-content: center; padding: 14px 22px !important;
+            }
+            .nav-cta i { color: #fff !important; }
         }
     </style>
     @stack('styles')
@@ -226,13 +271,15 @@
     </button>
 
     <ul class="nav-links" id="navLinks">
-        <li><a href="{{ route('home') }}"       class="{{ request()->routeIs('home')     ? 'active' : '' }}">Home</a></li>
-        <li><a href="{{ route('about') }}"      class="{{ request()->routeIs('about')    ? 'active' : '' }}">About</a></li>
-        <li><a href="{{ route('Biodata') }}"    class="{{ request()->routeIs('Biodata') ? 'active' : '' }}">Biodata</a></li>
-        <li><a href="{{ route('Hobby') }}"       class="{{ request()->routeIs('Hobby')    ? 'active' : '' }}">Hobby</a></li>
-        <li><a href="{{ route('contact') }}"    class="{{ request()->routeIs('contact')  ? 'active' : '' }}">Contact</a></li>
+        <li><a href="{{ route('home') }}"       class="{{ request()->routeIs('home')     ? 'active' : '' }}"><i class="fas fa-house"></i> Home</a></li>
+        <li><a href="{{ route('about') }}"      class="{{ request()->routeIs('about')    ? 'active' : '' }}"><i class="fas fa-user"></i> About</a></li>
+        <li><a href="{{ route('Biodata') }}"    class="{{ request()->routeIs('Biodata') ? 'active' : '' }}"><i class="fas fa-id-card"></i> Biodata</a></li>
+        <li><a href="{{ route('Hobby') }}"       class="{{ request()->routeIs('Hobby')    ? 'active' : '' }}"><i class="fas fa-heart"></i> Hobby</a></li>
+        <li><a href="{{ route('contact') }}"    class="nav-cta {{ request()->routeIs('contact')  ? 'active' : '' }}"><i class="fas fa-paper-plane"></i> Contact</a></li>
     </ul>
 </nav>
+
+<div class="nav-overlay" id="navOverlay"></div>
 
 <!-- ── PAGE CONTENT ── -->
 <main>
@@ -256,19 +303,32 @@
     });
 
     // Mobile hamburger
-    const toggle = document.getElementById('navToggle');
-    const links  = document.getElementById('navLinks');
+    const toggle  = document.getElementById('navToggle');
+    const links   = document.getElementById('navLinks');
+    const overlay = document.getElementById('navOverlay');
+
+    function closeMenu() {
+        links.classList.remove('open');
+        toggle.classList.remove('open');
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+    function openMenu() {
+        links.classList.add('open');
+        toggle.classList.add('open');
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
     toggle.addEventListener('click', () => {
-        toggle.classList.toggle('open');
-        links.classList.toggle('open');
+        links.classList.contains('open') ? closeMenu() : openMenu();
     });
+
+    overlay.addEventListener('click', closeMenu);
 
     // Close mobile menu on link click
     links.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => {
-            links.classList.remove('open');
-            toggle.classList.remove('open');
-        });
+        a.addEventListener('click', closeMenu);
     });
 </script>
 @stack('scripts')
