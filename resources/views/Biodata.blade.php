@@ -128,7 +128,7 @@
 
         <div class="biodata-info">
             <div class="biodata-name">Alfikar Radestian Prasenja</div>
-            <div class="biodata-role">Student &amp; Creative Designer</div>
+            <div class="biodata-role">Siwa &amp; Jurusan Rpl</div>
 
             <table class="biodata-table">
                 <tr>
