@@ -292,7 +292,7 @@
         <div class="footer-brand">Alfikar Radestian Prasenja</div>
         <p>&copy; {{ date('Y') }} · seorang siswa dari SMKN 2 kota Sukabumi y</p>
     </div>
-    <p>Dibuat dengan <a href="https://laravel.com">Laravel 12</a> &amp; passion ✦</p>
+    <p>Dibuat dengan <a href="https://laravel.com">Laravel 12</a> &amp; versi ✦</p>
 </footer>
 
 <script>
