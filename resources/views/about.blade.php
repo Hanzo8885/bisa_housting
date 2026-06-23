@@ -176,7 +176,7 @@
         <div class="about-photo-frame">
             <div class="photo-border"></div>
             <div class="photo-bg">
-                <img src="{{ asset('images/photo.jpg') }}" alt="Alfikar Radestian Prasenja">
+                <img src="{{ asset('images/photo1.jpg') }}" alt="Alfikar Radestian Prasenja">
             </div>
         </div>
         <div class="blob"></div>
