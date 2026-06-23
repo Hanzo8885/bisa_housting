@@ -275,7 +275,7 @@
         <li><a href="{{ route('about') }}"      class="{{ request()->routeIs('about')    ? 'active' : '' }}"><i class="fas fa-user"></i> About</a></li>
         <li><a href="{{ route('Biodata') }}"    class="{{ request()->routeIs('Biodata') ? 'active' : '' }}"><i class="fas fa-id-card"></i> Biodata</a></li>
         <li><a href="{{ route('Hobby') }}"       class="{{ request()->routeIs('Hobby')    ? 'active' : '' }}"><i class="fas fa-heart"></i> Hobby</a></li>
-        <li><a href="{{ route('contact') }}"    class="nav-cta {{ request()->routeIs('contact')  ? 'active' : '' }}"><i class="fas fa-paper-plane"></i> Contact</a></li>
+        <li><a href="{{ route('contact') }}"    class="{{ request()->routeIs('contact')  ? 'active' : '' }}"><i class="fas fa-paper-plane"></i> Contact</a></li>
     </ul>
 </nav>
 
