@@ -313,4 +313,6 @@
         <div class="ticker-item">UI/UX Design Figma <span class="ticker-star">✦</span></div>
     </div>
 </div>
+
+
 @endsection
