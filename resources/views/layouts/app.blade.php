@@ -290,9 +290,9 @@
 <footer>
     <div> 
         <div class="footer-brand">Alfikar Radestian Prasenja</div>
-        <p>&copy; {{ date('Y') }} · a student from SMKN 2 Sukabumi City</p>
+        <p>&copy; {{ date('Y') }} · seorang siswa dari SMKN 2 kota Sukabumi y</p>
     </div>
-    <p>Built with <a href="https://laravel.com">Laravel 12</a> &amp; passion ✦</p>
+    <p>Dibuat dengan <a href="https://laravel.com">Laravel 12</a> &amp; passion ✦</p>
 </footer>
 
 <script>
