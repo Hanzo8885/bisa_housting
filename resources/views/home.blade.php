@@ -315,4 +315,31 @@
 </div>
 
 
+<section class="services-strip" id="services">
+    <div class="section-label">Yang Saya Lakukan</div>
+    <h2>Kompetensi &amp; Layanan Pengembangan</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-code"></i></div>
+            <h3>Web Development</h3>
+            <p>Membangun arsitektur website yang tangguh dan dinamis mengandalkan framework Laravel serta PHP murni.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+            <h3>Software Programming</h3>
+            <p>Pengembangan aplikasi desktop terstruktur menggunakan kakas Visual Studio untuk fungsionalitas sistem yang andal.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-database"></i></div>
+            <h3>Database &amp; API</h3>
+            <p>Perancangan skema database relasional (MySQL) yang optimal serta pengujian integrasi endpoint via Postman.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-window-maximize"></i></div>
+            <h3>CMS &amp; Prototyping</h3>
+            <p>Penyusunan purwarupa antarmuka interaktif di Figma beserta kustomisasi web instan menggunakan WordPress.</p>
+        </div>
+    </div>
+</section>
+
 @endsection
