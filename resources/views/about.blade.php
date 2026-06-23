@@ -211,36 +211,6 @@
     </div>
 </div>
 
-<section class="hobby-section">
-    <div class="sub-label">Di Luar Coding</div>
-    <h2>Hobi &amp; Keseharian</h2>
-    <div class="hobby-grid">
-        <div class="hobby-card">
-            <div class="hobby-icon"><i class="fas fa-person-swimming"></i></div>
-            <span>Berenang</span>
-        </div>
-        <div class="hobby-card">
-            <div class="hobby-icon"><i class="fas fa-person-running"></i></div>
-            <span>Jogging</span>
-        </div>
-        <div class="hobby-card">
-            <div class="hobby-icon"><i class="fas fa-film"></i></div>
-            <span>Menonton Film</span>
-        </div>
-        <div class="hobby-card">
-            <div class="hobby-icon"><i class="fas fa-music"></i></div>
-            <span>Indie &amp; Pop Rock</span>
-        </div>
-        <div class="hobby-card">
-            <div class="hobby-icon"><i class="fas fa-book"></i></div>
-            <span>Self-Improvement</span>
-        </div>
-        <div class="hobby-card">
-            <div class="hobby-icon"><i class="fas fa-gamepad"></i></div>
-            <span>Gaming</span>
-        </div>
-    </div>
-</section>
 
 <section class="skills-section">
     <div class="sub-label">Yang Saya Kuasai</div>
