@@ -78,38 +78,51 @@
         flex: 1; display: flex; justify-content: flex-end; align-items: center;
         position: relative; z-index: 2;
     }
+
+    /* Photo frame: bingkai hitam solid menjorok di kanan-bawah, seperti referensi */
     .photo-frame {
         position: relative; width: 320px; height: 380px;
     }
     .photo-frame .photo-bg {
-        position: absolute; inset: 0;
-        background: #e9e9e9; border-radius: 4px;
-        display: flex; align-items: center; justify-content: center;
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: #e9e9e9;
         overflow: hidden;
+        z-index: 2;
     }
     .photo-frame .photo-bg img {
-        width: 100%; height: 100%; object-fit: cover;
+        width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    /* Bingkai hitam solid: muncul di sisi kanan & bawah foto, sedikit lebih besar dari foto */
+    .photo-frame .photo-border {
+        position: absolute;
+        top: 14px; left: 14px;
+        width: 100%; height: 100%;
+        background: var(--black);
+        z-index: 1;
     }
 
-    /* Green blob behind photo */
+    /* Green blob besar di pojok kanan-bawah HERO (bukan nempel ke foto) */
     .blob {
-        position: absolute; bottom: -30px; right: -40px;
-        width: 180px; height: 110px;
-        background: var(--green); border-radius: 50px;
-        transform: rotate(-20deg); z-index: -1;
-        opacity: .9;
+        position: absolute; bottom: -60px; right: -60px;
+        width: 220px; height: 140px;
+        background: var(--green); border-radius: 60px;
+        transform: rotate(-20deg); z-index: 0;
+        opacity: .95;
     }
     .blob-sm {
-        position: absolute; bottom: 10px; right: 140px;
-        width: 80px; height: 50px;
-        background: var(--green); border-radius: 30px;
-        transform: rotate(-20deg); z-index: -1;
-        opacity: .7;
+        position: absolute; bottom: -10px; right: 90px;
+        width: 90px; height: 55px;
+        background: var(--green); border-radius: 35px;
+        transform: rotate(-18deg); z-index: 0;
+        opacity: .75;
     }
 
-    /* Squiggle accent (SVG) */
+    /* Squiggle accent (SVG) — sekarang menumpuk di atas, kiri-atas foto, seperti referensi */
     .squiggle {
-        position: absolute; top: 30px; left: -60px;
+        position: absolute; top: -18px; left: 30%;
+        z-index: 3;
     }
 
     /* Scroll ring */
@@ -252,19 +265,21 @@
     </div>
 
     <div class="hero-right">
-        <div class="squiggle">
-            <svg width="60" height="40" viewBox="0 0 60 40" fill="none">
-                <path d="M5 35 Q15 5 30 20 Q45 35 55 5" stroke="#0D0D0D" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-            </svg>
-        </div>
-
         <div class="photo-frame">
+            <div class="squiggle">
+                <svg width="60" height="40" viewBox="0 0 60 40" fill="none">
+                    <path d="M5 35 Q15 5 30 20 Q45 35 55 5" stroke="#0D0D0D" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                </svg>
+            </div>
+
+            <div class="photo-border"></div>
             <div class="photo-bg">
                 <img src="{{ asset('images/photo.jpg') }}" alt="Alfikar Radestian Prasenja">
             </div>
-            <div class="blob"></div>
-            <div class="blob-sm"></div>
         </div>
+
+        <div class="blob"></div>
+        <div class="blob-sm"></div>
 
         <div class="scroll-ring">
             <svg viewBox="0 0 100 100">
