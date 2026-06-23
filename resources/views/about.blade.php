@@ -214,7 +214,7 @@
 
 <section class="skills-section">
     <div class="sub-label">Yang Saya Kuasai</div>
-    <h2>Skills &amp; Tools</h2>
+    <h2>Kemampuan &amp; Alat Yang Saya Kuasai</h2>
     <div class="skills-grid">
         @php
             $skillIcons = [
