@@ -164,7 +164,7 @@
     <div class="Hobby-grid">
 
       <div class="Hobby-card cat-olahraga">
-        <div class="Hobby-photo" style="background-image:url('{{ asset('images/hobby/renang.jpg') }}')"></div>
+        <div class="Hobby-photo" style="background-image: url('{{ asset('images/hobby/renang.jpg') }}');"></div>
         <div class="Hobby-icon-chip"><i class="fa-solid fa-person-swimming"></i></div>
         <h3>Renang</h3>
         <p>Media utama saya untuk menjaga kebugaran tubuh sekaligus menyegarkan pikiran. Saya sangat menikmati tantangan fisik di dalam air yang melatih kekuatan dan fokus.</p>
@@ -177,7 +177,7 @@
       </div>
 
       <div class="Hobby-card cat-olahraga">
-       <div class="Hobby-photo" style="background-image:url('{{ asset('images/hobby/jogging.jpg') }}')"></div>
+       <div class="Hobby-photo" style="background-image: url('{{ asset('images/hobby/jogging.jpg') }}');"></div>
         <div class="Hobby-icon-chip"><i class="fa-solid fa-person-running"></i></div>
         <h3>Jogging</h3>
         <p>Cara andalan saya untuk menjaga kebugaran fisik dan melatih stamina di pagi atau sore hari. Aktivitas ini juga menjadi momen terbaik untuk menjernihkan pikiran dari rutinitas harian.</p>
@@ -190,7 +190,7 @@
       </div>
 
       <div class="Hobby-card cat-seni">
-           <div class="Hobby-photo" style="background-image:url('{{ asset('images/hobby/film.jpg') }}')"></div>
+           <div class="Hobby-photo" style="background-image: url('{{ asset('images/hobby/film.jpg') }}');"></div>
         <div class="Hobby-icon-chip"><i class="fa-solid fa-film"></i></div>
         <h3>Menonton Film</h3>
         <p>Gudang inspirasi bagi saya dalam mencari ide visual, efek suara, hingga penataan warna (tone). Alur cerita yang kuat sering kali memicu kreativitas untuk projek pribadi saya.</p>
@@ -203,7 +203,7 @@
       </div>
 
       <div class="Hobby-card cat-teknologi">
-         <div class="Hobby-photo" style="background-image:url('{{ asset('images/hobby/web.jpeg') }}')"></div>
+         <div class="Hobby-photo" style="background-image: url('{{ asset('images/hobby/web.jpeg') }}');"></div>
         <div class="Hobby-icon-chip"><i class="fa-solid fa-code"></i></div>
         <h3>Coding &amp; Web Dev</h3>
         <p>Membangun aplikasi web dan mengeksplorasi teknologi baru adalah hal yang selalu membuat saya bersemangat. Berfokus pada pengembangan dari HTML/CSS hingga framework Laravel.</p>
@@ -216,7 +216,7 @@
       </div>
 
       <div class="Hobby-card cat-hiburan">
-           <div class="Hobby-photo" style="background-image:url('{{ asset('images/hobby/gaming.jpg') }}')"></div>
+           <div class="Hobby-photo" style="background-image: url('{{ asset('images/hobby/gaming.jpg') }}');"></div>
         <div class="Hobby-icon-chip"><i class="fa-solid fa-gamepad"></i></div>
         <h3>Gaming</h3>
         <p>Sarana relaksasi yang efektif di kala senggang. Saya memiliki ketertarikan khusus pada game yang menyajikan jalan cerita yang mendalam serta desain antarmuka (UI) yang memanjakan mata.</p>
@@ -229,7 +229,7 @@
       </div>
 
       <div class="Hobby-card cat-hiburan">
-       <div class="Hobby-photo" style="background-image:url('{{ asset('images/hobby/musik.jpg') }}')"></div>
+       <div class="Hobby-photo" style="background-image: url('{{ asset('images/hobby/musik.jpg') }}');"></div>
         <div class="Hobby-icon-chip"><i class="fa-solid fa-music"></i></div>
         <h3>Musik</h3>
         <p>Ritual harian yang wajib untuk menemani waktu produktif. Alunan musik Genre Indie Pop, Pop Rock, atau soundtrack film sangat ampuh membantu saya menjaga fokus saat sedang ngoding.</p>
@@ -251,4 +251,3 @@
   </div>
 </div>
 @endsection
-
