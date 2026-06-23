@@ -203,7 +203,7 @@
       </div>
 
       <div class="Hobby-card cat-teknologi">
-         <div class="Hobby-photo" style="background-image:url('{{ asset('images/hobby/web.jpg') }}')"></div>
+         <div class="Hobby-photo" style="background-image:url('{{ asset('images/hobby/web.jpeg') }}')"></div>
         <div class="Hobby-icon-chip"><i class="fa-solid fa-code"></i></div>
         <h3>Coding &amp; Web Dev</h3>
         <p>Membangun aplikasi web dan mengeksplorasi teknologi baru adalah hal yang selalu membuat saya bersemangat. Berfokus pada pengembangan dari HTML/CSS hingga framework Laravel.</p>
@@ -229,7 +229,7 @@
       </div>
 
       <div class="Hobby-card cat-hiburan">
-       <div class="Hobby-photo" style="background-image:url('{{ asset('images/hobby/musik.jpg') }}')"></div>
+       <div class="Hobby-photo" style="background-image:url('{{ asset('images/hobby/musik.jpeg') }}')"></div>
         <div class="Hobby-icon-chip"><i class="fa-solid fa-music"></i></div>
         <h3>Musik</h3>
         <p>Ritual harian yang wajib untuk menemani waktu produktif. Alunan musik Genre Indie Pop, Pop Rock, atau soundtrack film sangat ampuh membantu saya menjaga fokus saat sedang ngoding.</p>
